@@ -1,14 +1,26 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+</head>
 <body>
-
-<h2>เลือกสี</h2>
-
-<form action="/action_page.php">
-  <label for="favcolor">สีที่ชอบ ::</label>
-  <input type="color" id="favcolor" name="favcolor" value="#ff0000">
-  <p><input type="submit" value="Submit"></p>
-</form>
+<div id="app">
+  <div :style="{ backgroundColor: selectedColor, minHeight: '100vh', padding: '20px' }">
+    <h1>เลือกสี</h1>
+    <form action="/action_page.php">
+      <label for="favcolor">สีที่เลือก:</label>
+      <input type="color" id="favcolor" name="favcolor" v-model="selectedColor"><br><br>
+    </form>
+  </div>
+</div>
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    selectedColor: '#176C71'
+  }
+});
+</script>
 
 </body>
 </html>
